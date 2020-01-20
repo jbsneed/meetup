@@ -20,9 +20,10 @@ describe('<NumberOfEvents /> component', () => {
         expect(NumberOfEventsWrapper.find('.eventsNumberTextbox')).toHaveLength(1);
     });
 
-    test('render number of events specified', () => {
-        const numberQuery = NumberOfEventsWrapper.state('query');
-        expect(NumberOfEventsWrapper.find('.eventsNumberTextbox').prop('value')).toBe(numberQuery)
+    test('test handleInputChanged', () => {
+        const eventObject = { target: { value: 10 } };
+        NumberOfEventsWrapper.find('.eventsNumberTextbox').simulate('change', eventObject);
+        expect(NumberOfEventsWrapper.state('query')).toBe(10);
     });
 
 });

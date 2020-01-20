@@ -53,6 +53,14 @@ describe('<Event /> component', () => {
     test('render details when show details button is clicked', () => {
         EventWrapper.find('.eventButton').simulate('click');
         expect(EventWrapper.state('showDetails')).toBe(true);
-    })
+    });
+
+    test('show details state as false', () => {
+        const eventObject = { showDetails: true };
+        EventWrapper.find('.eventButton').simulate('click', eventObject);
+        expect(EventWrapper.state('showDetails')).toBe(false);
+    });
+
+
 
 });
