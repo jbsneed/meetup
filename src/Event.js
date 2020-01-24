@@ -14,7 +14,7 @@ class Event extends Component {
         }
     }
     render() {
-        const { event } = this.props;
+        const event = this.props.event;
         return (
             <div className="event">
                 <div className="eventName">{event.name}</div>
