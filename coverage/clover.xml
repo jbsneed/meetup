@@ -1,54 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1579916496595" clover="3.2.0">
-  <project timestamp="1579916496595" name="All files">
-    <metrics statements="36" coveredstatements="23" conditionals="10" coveredconditionals="2" methods="14" coveredmethods="13" elements="60" coveredelements="38" complexity="0" loc="36" ncloc="36" packages="1" files="4" classes="4"/>
+<coverage generated="1579984816384" clover="3.2.0">
+  <project timestamp="1579984816384" name="All files">
+    <metrics statements="18" coveredstatements="13" conditionals="6" coveredconditionals="3" methods="9" coveredmethods="7" elements="33" coveredelements="23" complexity="0" loc="18" ncloc="18" packages="1" files="2" classes="2"/>
     <file name="App.js" path="/Users/juliesneed/meetup/src/App.js">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <line num="9" count="4" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="17" count="7" type="stmt"/>
-    </file>
-    <file name="CitySearch.js" path="/Users/juliesneed/meetup/src/CitySearch.js">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-      <line num="5" count="9" type="stmt"/>
-      <line num="10" count="9" type="stmt"/>
-      <line num="11" count="2" type="stmt"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="13" count="2" type="stmt"/>
-      <line num="16" count="9" type="stmt"/>
-      <line num="17" count="2" type="stmt"/>
-      <line num="18" count="2" type="stmt"/>
-      <line num="22" count="18" type="stmt"/>
-      <line num="33" count="6" type="stmt"/>
-    </file>
-    <file name="Event.js" path="/Users/juliesneed/meetup/src/Event.js">
-      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <line num="4" count="5" type="stmt"/>
-      <line num="9" count="5" type="stmt"/>
-      <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="17" count="7" type="stmt"/>
-      <line num="18" count="7" type="stmt"/>
-    </file>
-    <file name="api.js" path="/Users/juliesneed/meetup/src/api.js">
-      <metrics statements="15" coveredstatements="2" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="8" count="0" type="stmt"/>
-      <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="10" count="0" type="stmt"/>
-      <line num="11" count="0" type="stmt"/>
-      <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="14" count="0" type="stmt"/>
-      <line num="15" count="0" type="stmt"/>
-      <line num="17" count="0" type="stmt"/>
-      <line num="20" count="0" type="stmt"/>
-      <line num="22" count="0" type="cond" truecount="0" falsecount="4"/>
-      <line num="23" count="0" type="stmt"/>
-      <line num="25" count="0" type="stmt"/>
+      <metrics statements="12" coveredstatements="7" conditionals="6" coveredconditionals="3" methods="7" coveredmethods="5"/>
+      <line num="10" count="5" type="stmt"/>
+      <line num="13" count="5" type="stmt"/>
+      <line num="20" count="5" type="stmt"/>
+      <line num="21" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="26" count="0" type="stmt"/>
       <line num="27" count="0" type="stmt"/>
-      <line num="32" count="2" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="37" count="12" type="stmt"/>
+    </file>
+    <file name="NumberOfEvents.js" path="/Users/juliesneed/meetup/src/NumberOfEvents.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="14" count="8" type="stmt"/>
     </file>
   </project>
 </coverage>
