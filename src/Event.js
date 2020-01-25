@@ -17,8 +17,8 @@ class Event extends Component {
         const event = this.props.event;
         return (
             <div className="event">
-                <div className="eventName">{event.name}</div>
-                <div className="eventDate">{event.local_date}</div>
+                <div className="eventName">{this.props.event.name}</div>
+                <div className="eventDate">{this.props.event.local_date}</div>
 
                 <button className="eventButton" onClick={this.handleChange}>Show Details</button>
 
