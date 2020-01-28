@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580187136240" clover="3.2.0">
-  <project timestamp="1580187136240" name="All files">
+<coverage generated="1580188141499" clover="3.2.0">
+  <project timestamp="1580188141499" name="All files">
     <metrics statements="39" coveredstatements="4" conditionals="24" coveredconditionals="2" methods="4" coveredmethods="2" elements="67" coveredelements="8" complexity="0" loc="39" ncloc="39" packages="1" files="1" classes="1"/>
     <file name="api.js" path="/Users/juliesneed/meetup/src/api.js">
       <metrics statements="39" coveredstatements="4" conditionals="24" coveredconditionals="2" methods="4" coveredmethods="2"/>

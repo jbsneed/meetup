@@ -43,9 +43,9 @@ function getAccessToken() {
 async function getOrRenewAccessToken(type, key) {
     let url;
     if (type === 'get') {
-        url = 'https://rcbo65biw9.execute-api.us-east-2.amazonaws.com/dev/api/token/{code}' + key;
+        url = 'https://rcbo65biw9.execute-api.us-east-2.amazonaws.com/dev/api/token/' + key;
     } else if (type === 'renew') {
-        url = 'https://rcbo65biw9.execute-api.us-east-2.amazonaws.com/dev/api/refresh/{code}' + key;
+        url = 'https://rcbo65biw9.execute-api.us-east-2.amazonaws.com/dev/api/refresh/' + key;
     }
 
     const tokenInfo = await axios.get(url);
