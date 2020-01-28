@@ -29,7 +29,7 @@ module.exports.refreshAccessToken = async (event) => {
     + '?client_id=9f19c9tbjm3od65i6l0kqkb5j6'
     + '&client_secret=9f19c9tbjm3od65i6l0kqkb5j6'
     + '&grant_type=refresh_token'
-    + '&refresh_token=' + event.pathParameters.refresh_token;
+    + '&refresh_token=' + event.pathParameters.code;
 
   const info = await axios.post(MEETUP_OAUTH_URL);
 
