@@ -8,7 +8,7 @@ async function getEvents(lat, lon) {
     const token = await getAccessToken();
     if (token) {
         let url = 'https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public'
-            + '&access_token' + token;
+            + '&access_token=' + token;
         if (lat && lon) {
             url += '&lat=' + lat + '&lon=' + lon;
         }
