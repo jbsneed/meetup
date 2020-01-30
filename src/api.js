@@ -1,7 +1,7 @@
 import { mockEvents } from './mock-events';
 import axios from 'axios';
 
-async function getEvents(lat, lon) {
+async function getEvents(lat, lon, page) {
     if (window.location.href.startsWith('http://localhost')) {
         return mockEvents.events;
     }
@@ -11,6 +11,12 @@ async function getEvents(lat, lon) {
             + '&access_token=' + token;
         if (lat && lon) {
             url += '&lat=' + lat + '&lon=' + lon;
+        }
+        if (page) {
+            url += '&page=' + page;
+        }
+        if (lat & lon & page) {
+            url += '&lat' + lat + '&lon=' + lon + '&page=' + page;
         }
         const result = await axios.get(url);
         return result.data.events;
