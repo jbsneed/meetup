@@ -20,6 +20,7 @@ class Event extends Component {
                 <p className="eventName">{event.name}</p>
                 <p className="eventDate">{event.local_date}</p>
                 <p className="groupName">{event.group.name}</p>
+                <p className="rsvp">{event.yes_rsvp_count} people attending</p>
 
 
                 <button className="eventButton" onClick={this.handleChange}>Show Details</button>
