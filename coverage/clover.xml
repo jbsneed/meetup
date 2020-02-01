@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580442842699" clover="3.2.0">
-  <project timestamp="1580442842699" name="All files">
-    <metrics statements="19" coveredstatements="11" conditionals="8" coveredconditionals="3" methods="9" coveredmethods="6" elements="36" coveredelements="20" complexity="0" loc="19" ncloc="19" packages="1" files="2" classes="2"/>
-    <file name="App.js" path="/Users/juliesneed/meetup/src/App.js">
-      <metrics statements="12" coveredstatements="7" conditionals="6" coveredconditionals="3" methods="7" coveredmethods="5"/>
-      <line num="10" count="5" type="stmt"/>
-      <line num="13" count="5" type="stmt"/>
-      <line num="20" count="5" type="stmt"/>
-      <line num="21" count="1" type="cond" truecount="3" falsecount="1"/>
-      <line num="22" count="1" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="30" count="0" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
-      <line num="37" count="11" type="stmt"/>
-    </file>
+<coverage generated="1580528241800" clover="3.2.0">
+  <project timestamp="1580528241800" name="All files">
+    <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="11" coveredelements="11" complexity="0" loc="7" ncloc="7" packages="1" files="1" classes="1"/>
     <file name="Event.js" path="/Users/juliesneed/meetup/src/Event.js">
-      <metrics statements="7" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <line num="4" count="9" type="stmt"/>
-      <line num="9" count="9" type="stmt"/>
-      <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="11" count="0" type="stmt"/>
-      <line num="13" count="0" type="stmt"/>
-      <line num="17" count="9" type="stmt"/>
-      <line num="18" count="9" type="stmt"/>
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="4" count="5" type="stmt"/>
+      <line num="9" count="5" type="stmt"/>
+      <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="17" count="7" type="stmt"/>
+      <line num="18" count="7" type="stmt"/>
     </file>
   </project>
 </coverage>

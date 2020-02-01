@@ -42,22 +42,22 @@ describe('<Event /> component', () => {
         expect(EventWrapper.find('.event')).toHaveLength(1);
     });
 
-    test('render only event name and date as default', () => {
+    test('show details is false as default', () => {
         expect(EventWrapper.state('showDetails')).toBe(false);
     });
 
     test('verify a show details button exists', () => {
-        expect(EventWrapper.find('.eventButton')).toHaveLength(1);
+        expect(EventWrapper.find('.detailsButton')).toHaveLength(1);
     });
 
     test('render details when show details button is clicked', () => {
-        EventWrapper.find('.eventButton').simulate('click');
+        EventWrapper.find('.detailsButton').simulate('click');
         expect(EventWrapper.state('showDetails')).toBe(true);
     });
 
     test('show details state as false', () => {
         const eventObject = { showDetails: true };
-        EventWrapper.find('.eventButton').simulate('click', eventObject);
+        EventWrapper.find('.detailsButton').simulate('click', eventObject);
         expect(EventWrapper.state('showDetails')).toBe(false);
     });
 
