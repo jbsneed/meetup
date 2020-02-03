@@ -16,13 +16,14 @@ class Event extends Component {
                 <div className="eventName">{event.name}</div>
                 <div className="eventDate">{event.local_date}</div>
 
-                <button className="detailsButton" onClick={this.handleChange}>Show Details</button>
+                <button className="detailsButton" onClick={this.handleChange}>Show More</button>
 
                 {this.state.showDetails && (
                     <div className="eventDetails">
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
                         <div className="eventCity">State: {event.venue && event.venue.state}</div>
-                        <div className="eventDescription">Description: {event.description}</div>
+                        <div className="eventDescription" dangerouslySetInnerHTML={{ __html: event.description }}></div>
+                        <button className="lessDetailsButton" onClick={this.handleChange}>Show Less</button>
                     </div>
                 )}
 
