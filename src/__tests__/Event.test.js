@@ -39,7 +39,7 @@ describe('<Event /> component', () => {
     });
 
     test('render event container', () => {
-        expect(EventWrapper.find('.event')).toHaveLength(1);
+        expect(EventWrapper.find('.Event')).toHaveLength(1);
     });
 
     test('show details is false as default', () => {

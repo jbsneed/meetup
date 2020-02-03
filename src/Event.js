@@ -7,20 +7,24 @@ class Event extends Component {
     }
 
     handleChange = () => {
-        if (this.state.showDetails === false) {
-            this.setState({ showDetails: true });
-        } else {
-            this.setState({ showDetails: false });
-        }
+        this.setState({ showDetails: !this.state.showDetails })
     }
     render() {
         const event = this.props.event;
         return (
-            <div className="event">
-                <p className="eventName">{event.name}</p>
-                <p className="eventDate">{event.local_date}</p>
+            <div className="Event">
+                <div className="eventName">{event.name}</div>
+                <div className="eventDate">{event.local_date}</div>
 
                 <button className="detailsButton" onClick={this.handleChange}>Show Details</button>
+
+                {this.state.showDetails && (
+                    <div className="eventDetails">
+                        <div className="eventCity">City: {event.venue && event.venue.city}</div>
+                        <div className="eventCity">State: {event.venue && event.venue.state}</div>
+                        <div className="eventDescription">Description: {event.description}</div>
+                    </div>
+                )}
 
             </div>
         );
