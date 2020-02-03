@@ -22,6 +22,7 @@ class Event extends Component {
                     <div className="eventDetails">
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
                         <div className="eventCity">State: {event.venue && event.venue.state}</div>
+                        <div className="eventAddress">Address: {event.venue && event.venue.address_1}</div>
                         <div className="eventDescription" dangerouslySetInnerHTML={{ __html: event.description }}></div>
                         <button className="lessDetailsButton" onClick={this.handleChange}>Show Less</button>
                     </div>
