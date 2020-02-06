@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import * as atatus from 'atatus-spa';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -10,3 +11,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+atatus.config('d7b63578f1a44f81b3abb982dc8d42f5').install();
