@@ -8,8 +8,8 @@ import { OfflineAlert } from './Alert';
 
 class App extends Component {
   componentDidMount() {
-    window.addEventListener('online', this.OfflineAlert());
     getEvents().then(response => this.setState({ events: response }));
+    window.addEventListener('offline', this.OfflineAlert());
   }
 
   state = {
@@ -21,7 +21,7 @@ class App extends Component {
   };
 
   OfflineAlert = () => {
-    if (!navigator.onLine) {
+    if (navigator.onLine === false) {
       this.setState({
         offlineText: 'You do not have internet connection. This list is cached from your previous visit. Please connect to the internet.'
       });
