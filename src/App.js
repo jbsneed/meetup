@@ -4,9 +4,11 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
+import { OfflineAlert } from './Alert';
 
 class App extends Component {
   componentDidMount() {
+    window.addEventListener('online', this.OfflineAlert());
     getEvents().then(response => this.setState({ events: response }));
   }
 
@@ -14,8 +16,21 @@ class App extends Component {
     events: [],
     lat: null,
     lon: null,
-    page: null
+    page: null,
+    offlineText: '',
   };
+
+  OfflineAlert = () => {
+    if (!navigator.onLine) {
+      this.setState({
+        offlineText: 'You do not have internet connection. This list is cached from your previous visit. Please connect to the internet.'
+      });
+    } else {
+      this.setState({
+        offlineText: '',
+      });
+    }
+  }
 
   updateEvents = (lat, lon, page) => {
     if (lat && lon) {
@@ -36,6 +51,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <OfflineAlert text={this.state.OfflineText} />
         <CitySearch updateEvents={this.updateEvents} />
         <EventList events={this.state.events} />
         <NumberOfEvents updateEvents={this.updateEvents}
