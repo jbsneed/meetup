@@ -30,6 +30,7 @@ class NumberOfEvents extends Component {
                 <div className="alertMessage">
                     <ErrorAlert text={this.state.infoText} />
                 </div>
+                <span>Showing </span>
                 <input
                     type="number"
                     className="eventsNumberTextbox"
@@ -37,6 +38,7 @@ class NumberOfEvents extends Component {
                     onChange={this.handleInputChanged}
                     placeholder="Default number is 32"
                 />
+                <span> Events</span>
             </div>
         );
     }
