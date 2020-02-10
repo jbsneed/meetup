@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { WarningAlert } from './Alert';
 
 class Event extends Component {
     state = {
@@ -41,7 +42,7 @@ class Event extends Component {
         return (
             <div className="Event">
                 <div className="eventName">{event.name}</div>
-                <div className="eventDate">{event.local_date}</div>
+                <div className="eventDate">{event.local_date} at {event.local_time}</div>
                 {this.state.showDetails && (
                     <div className="eventDetails">
                         {event.rsvp_limit &&
@@ -59,6 +60,7 @@ class Event extends Component {
                                 </PieChart>
                             </ResponsiveContainer>
                         }
+                        <WarningAlert text={this.state.infoText} /> <br />
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
                         <div className="eventCity">State: {event.venue && event.venue.state}</div>
                         <div className="eventAddress">Address: {event.venue && event.venue.address_1}</div>
