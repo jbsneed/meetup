@@ -42,8 +42,8 @@ class Event extends Component {
         return (
             <div className="Event">
                 <div className="eventName">{event.name}</div>
-                <div className="eventDate">{event.local_date && event.local_time}</div>
-                {this.state.showDetails && (
+                <div className="eventDate">{event.local_date} - {event.local_time}</div>
+                {this.state.showDetails &&
                     <div className="eventDetails">
                         {event.rsvp_limit &&
                             <ResponsiveContainer width="99%" height="99%">
@@ -68,7 +68,7 @@ class Event extends Component {
                         <div>  <a className="eventLink" target="_blank" rel="noopener noreferrer" href={event.link}>Event Link</a>
                         </div>
                     </div>
-                )}
+                }
                 <button className="detailsButton" onClick={this.handleChange}>{`${buttonText} Details`}</button>
 
             </div>
