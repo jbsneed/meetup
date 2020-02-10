@@ -42,7 +42,7 @@ class Event extends Component {
         return (
             <div className="Event">
                 <div className="eventName">{event.name}</div>
-                <div className="eventDate">{event.local_date} - {event.local_time}</div>
+                <div className="eventDate">{event.local_time} - {event.local_date}</div>
                 {this.state.showDetails &&
                     <div className="eventDetails">
                         {event.rsvp_limit &&
@@ -74,7 +74,6 @@ class Event extends Component {
             </div>
         );
     }
-
 }
 
 export default Event;
