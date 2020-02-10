@@ -5,6 +5,8 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
 import { OfflineAlert } from './Alert';
+import moment from 'moment';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 class App extends Component {
   componentDidMount() {
@@ -32,6 +34,28 @@ class App extends Component {
     }
   }
 
+  countEventsOnADate = (date) => {
+    let count = 0;
+    for (let i = 0; i < this.state.events.length; i += 1) {
+      if (this.state.events[i].local_date === date) {
+        count += 1;
+      }
+    }
+    return count;
+  }
+
+  getData = () => {
+    const next7Days = [];
+    const currentDate = moment();
+    for (let i = 0; i < 7; i += 1) {
+      currentDate.add(1, 'days');
+      const dateString = currentDate.format('YYYY-MM-DD');
+      const count = this.countEventsOnADate(dateString);
+      next7Days.push({ date: dateString, number: count });
+    }
+    return next7Days;
+  }
+
   updateEvents = (lat, lon, page) => {
     if (lat && lon) {
       getEvents(lat, lon, this.state.page).then(response =>
@@ -53,13 +77,25 @@ class App extends Component {
       <div className="App">
         <OfflineAlert text={this.state.offlineText} />
         <CitySearch updateEvents={this.updateEvents} />
-        <EventList events={this.state.events} />
         <NumberOfEvents updateEvents={this.updateEvents}
           query={this.state.events.length}
           lat={this.state.lat}
           lon={this.state.lon}
         />
-
+        <ResponsiveContainer height={400}>
+          <ScatterChart
+            margin={{
+              top: 20, right: 20, bottom: 20, left: 20,
+            }}
+          >
+            <CartesianGrid />
+            <XAxis type="category" dataKey="date" name="date" />
+            <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter data={this.getData()} fill="#8884d8" />
+          </ScatterChart>
+        </ResponsiveContainer>
+        <EventList events={this.state.events} />
       </div>
     );
   }
