@@ -22,7 +22,7 @@ class Event extends Component {
     getData = () => {
         const taken = this.props.event.yes_rsvp_count;
         const limit = this.props.event.rsvp_limit;
-        const remaining = limit - taken;
+        const remaining = limit - this.props.event.yes_rsvp_count;
 
         return (
             [
@@ -42,10 +42,10 @@ class Event extends Component {
         return (
             <div className="Event">
                 <div className="eventName">{event.name}</div>
-                <div className="eventDate">{event.local_time} - {event.local_date}</div>
+                <div className="eventDate">{event.local_date}</div>
                 {this.state.showDetails &&
                     <div className="eventDetails">
-                        {event.rsvp_limit &&
+                        {event.rsvp_count && event.rsvp_limit ?
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
                                     <Legend />
@@ -59,6 +59,7 @@ class Event extends Component {
                                     <Tooltip />
                                 </PieChart>
                             </ResponsiveContainer>
+                            : null}
                         }
                         <WarningAlert text={this.state.infoText} /> <br />
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
