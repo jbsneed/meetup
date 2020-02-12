@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Line, Tooltip } from 'recharts';
 import { WarningAlert } from './Alert';
 
 class Event extends Component {
@@ -45,11 +45,13 @@ class Event extends Component {
                 <div className="eventDate">{event.local_date}</div>
                 {this.state.showDetails &&
                     <div className="eventDetails">
-                        {event.rsvp_count && event.rsvp_limit ?
+                        {event.yes_rsvp_count && event.rsvp_limit ?
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
-                                    <Legend />
-                                    <Pie data={this.getData()} fill="#8884d8" label>
+                                    <Legend verticalAlign="top" height={36} />
+                                    <Line name="Attending" type="monotone" dataKey="taken" stroke="#8884d8" />
+                                    <Line name="Spots Remaining" type="monotone" dataKey="remaining" stroke="#82ca9d" />
+                                    <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
                                         {
                                             this.getData().map((entry, index) => (
                                                 <Cell key={`cell-${index}`} fill={colors[index]} />
