@@ -43,9 +43,9 @@ class Event extends Component {
             <div className="Event">
                 <div className="eventName">{event.name}</div>
                 <div className="eventDate">{event.local_date}</div>
-                {this.state.showDetails && (
+                {this.state.showDetails &&
                     <div className="eventDetails">
-                        {event.yes_rsvp_count && event.rsvp_limit ?
+                        {event.yes_rsvp_count && event.rsvp_limit ? (
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
                                     <Legend verticalAlign="top" height={36} />
@@ -59,7 +59,7 @@ class Event extends Component {
                                     <Tooltip />
                                 </PieChart>
                             </ResponsiveContainer>
-                            : null
+                        ) : null
                         }
                         <WarningAlert text={this.state.infoText} /> <br />
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
@@ -69,7 +69,7 @@ class Event extends Component {
                         <div>  <a className="eventLink" target="_blank" rel="noopener noreferrer" href={event.link}>Event Link</a>
                         </div>
                     </div>
-                )}
+                }
                 <button className="detailsButton" onClick={this.handleChange}>{`${buttonText} Details`}</button>
 
             </div>
