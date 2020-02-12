@@ -33,7 +33,7 @@ class Event extends Component {
     }
 
     render() {
-        const event = this.props.event;
+        const { event } = this.props;
         let colors = ['blue', 'green'];
         let buttonText = 'More';
         if (this.state.showDetails) {
