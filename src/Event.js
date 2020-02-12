@@ -11,7 +11,7 @@ class Event extends Component {
     handleChange = () => {
         this.setState({ showDetails: !this.state.showDetails });
         const rsvpCount = this.props.event.yes_rsvp_count;
-        const rsvpMax = this.props.event.waitlist_count;
+        const rsvpMax = this.props.event.rsvp_limit;
         if (rsvpCount === rsvpMax) {
             this.setState({ infoText: 'This event has 0 vacancies.' })
         } else {
@@ -21,13 +21,13 @@ class Event extends Component {
 
     getData = () => {
         const taken = this.props.event.yes_rsvp_count;
-        const limit = this.props.event.waitlist_count;
+        const limit = this.props.event.rsvp_limit;
         const remaining = limit - this.props.event.yes_rsvp_count;
 
         return (
             [
-                { "name": "Spots Taken", "value": taken },
-                { "name": "Spots Remaining", "value": remaining }
+                { name: "Spots Taken", value: taken },
+                { name: "Spots Remaining", value: remaining }
             ]
         )
     }
@@ -45,13 +45,13 @@ class Event extends Component {
                 <div className="eventDate">{event.local_date}</div>
                 {this.state.showDetails && (
                     <div className="eventDetails">
-                        {event.yes_rsvp_count && event.waitlist_count ?
+                        {event.yes_rsvp_count && event.rsvp_limit ?
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
                                     <Legend verticalAlign="top" height={36} />
                                     <Line name="Attending" type="monotone" dataKey="taken" stroke="#8884d8" />
                                     <Line name="Spots Remaining" type="monotone" dataKey="remaining" stroke="#82ca9d" />
-                                    <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
+                                    <Pie data={this.getData()} cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
                                         {
                                             this.getData().map((entry, index) => (
                                                 <Cell key={`cell-${index}`} fill={colors[index]} />
