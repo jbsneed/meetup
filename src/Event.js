@@ -11,7 +11,7 @@ class Event extends Component {
     handleChange = () => {
         this.setState({ showDetails: !this.state.showDetails });
         const rsvpCount = this.props.event.yes_rsvp_count;
-        const rsvpMax = this.props.event.rsvp_limit;
+        const rsvpMax = this.props.event.waitlist_count;
         if (rsvpCount === rsvpMax) {
             this.setState({ infoText: 'This event has 0 vacancies.' })
         } else {
@@ -21,7 +21,7 @@ class Event extends Component {
 
     getData = () => {
         const taken = this.props.event.yes_rsvp_count;
-        const limit = this.props.event.rsvp_limit;
+        const limit = this.props.event.waitlist_count;
         const remaining = limit - this.props.event.yes_rsvp_count;
 
         return (
