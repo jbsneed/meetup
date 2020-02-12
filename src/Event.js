@@ -45,7 +45,7 @@ class Event extends Component {
                 <div className="eventDate">{event.local_date}</div>
                 {this.state.showDetails && (
                     <div className="eventDetails">
-                        {event.yes_rsvp_count && event.rsvp_limit ?
+                        {event.yes_rsvp_count && event.waitlist_count ?
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
                                     <Legend verticalAlign="top" height={36} />
