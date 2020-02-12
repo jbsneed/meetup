@@ -61,7 +61,7 @@ class Event extends Component {
                                     <Tooltip />
                                 </PieChart>
                             </ResponsiveContainer>
-                            : null}
+                            : null
                         }
                         <WarningAlert text={this.state.infoText} /> <br />
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
