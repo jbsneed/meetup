@@ -20,9 +20,9 @@ class Event extends Component {
     }
 
     getData = () => {
-        const taken = this.props.event.yes_rsvp_count;
-        const limit = this.props.event.rsvp_limit;
-        const remaining = limit - this.props.event.yes_rsvp_count;
+        const { event } = this.props;
+        const taken = event.yes_rsvp_count;
+        const remaining = event.rsvp_limit - taken;
 
         return (
             [
@@ -45,7 +45,7 @@ class Event extends Component {
                 <div className="eventDate">{event.local_date}</div>
                 {this.state.showDetails &&
                     <div className="eventDetails">
-                        {event.yes_rsvp_count && event.rsvp_limit ? (
+                        {this.props.event.rsvp_limit ? (
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
                                     <Legend verticalAlign="top" height={36} />
@@ -66,7 +66,7 @@ class Event extends Component {
                         <div className="eventCity">State: {event.venue && event.venue.state}</div>
                         <div className="eventAddress">Address: {event.venue && event.venue.address_1}</div>
                         <div className="eventDescription" dangerouslySetInnerHTML={{ __html: event.description }}></div>
-                        <div>  <a className="eventLink" target="_blank" rel="noopener noreferrer" href={event.link}>Event Link</a>
+                        <div>  <a className="eventLink" target="_blank" rel="noopener noreferrer" href={event.link}>Event Link</a><br />
                         </div>
                     </div>
                 }
