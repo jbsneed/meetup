@@ -46,7 +46,7 @@ class Event extends Component {
                     <div className="eventDetails">
                         <hr />
                         {this.props.event.rsvp_limit ? (
-                            <ResponsiveContainer height={600} width={400}>
+                            <ResponsiveContainer className="responsiveContainer" height={600} width={400}>
                                 <PieChart width={300} height={200}>
                                     <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
                                         {
