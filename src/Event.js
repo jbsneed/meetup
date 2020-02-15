@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Line, Tooltip } from 'recharts';
 import { WarningAlert } from './Alert';
 
 class Event extends Component {
-    state = {
-        showDetails: false,
-        events: [],
+    constructor(props) {
+        super(props);
+        this.state = {
+            showDetails: false,
+        }
     }
 
     handleChange = () => {
@@ -42,13 +44,12 @@ class Event extends Component {
         return (
             <div className="Event">
                 <div className="eventName">{event.name}</div>
-                <div className="eventDate">{event.local_date}</div>
+                <div className="eventDate">{event.local_time + "-" + event.local_date}</div>
                 {this.state.showDetails &&
                     <div className="eventDetails">
                         {this.props.event.rsvp_limit ? (
                             <ResponsiveContainer width="99%" height="99%">
                                 <PieChart width={300} height={200}>
-                                    <Legend verticalAlign="top" height={36} />
                                     <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
                                         {
                                             this.getData().map((entry, index) => (
@@ -57,6 +58,10 @@ class Event extends Component {
                                         }
                                     </Pie>
                                     <Tooltip />
+                                    <Legend verticalAlign="top" height={36}>
+                                        <Line name="Attending" type="monotone" dataKey="taken" stroke="#8884d8" />
+                                        <Line name="Remaining" type="monotone" dataKey="remaining" stroke="#82ca9d" />
+                                    </Legend>
                                 </PieChart>
                             </ResponsiveContainer>
                         ) : null
