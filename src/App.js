@@ -9,18 +9,21 @@ import moment from 'moment';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      events: [],
+      lat: null,
+      lon: null,
+      page: null,
+      offlineText: '',
+    };
+  }
   componentDidMount() {
     getEvents().then(response => this.setState({ events: response }));
     window.addEventListener('offline', this.OfflineAlert());
   }
 
-  state = {
-    events: [],
-    lat: null,
-    lon: null,
-    page: null,
-    offlineText: '',
-  };
 
   OfflineAlert = () => {
     if (navigator.onLine === false) {

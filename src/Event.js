@@ -11,13 +11,10 @@ class Event extends Component {
     }
 
     handleChange = () => {
-        this.setState({ showDetails: !this.state.showDetails });
-        const rsvpCount = this.props.event.yes_rsvp_count;
-        const rsvpMax = this.props.event.rsvp_limit;
-        if (rsvpCount === rsvpMax) {
-            this.setState({ infoText: 'This event has 0 vacancies.' })
+        if (!this.state.showDetails) {
+            this.setState({ showDetails: true });
         } else {
-            this.setState({ infoText: '' });
+            this.setState({ showDetails: false });
         }
     }
 
@@ -36,7 +33,7 @@ class Event extends Component {
 
     render() {
         const { event } = this.props;
-        let colors = ['blue', 'green'];
+        let colors = ["#e34542", "#43e06d"]
         let buttonText = 'More';
         if (this.state.showDetails) {
             buttonText = 'Less';
@@ -45,10 +42,11 @@ class Event extends Component {
             <div className="Event">
                 <div className="eventName">{event.name}</div>
                 <div className="eventDate">{event.local_time + "-" + event.local_date}</div>
-                {this.state.showDetails &&
+                {this.state.showDetails && (
                     <div className="eventDetails">
+                        <hr />
                         {this.props.event.rsvp_limit ? (
-                            <ResponsiveContainer width="99%" height="99%">
+                            <ResponsiveContainer height={250}>
                                 <PieChart width={300} height={200}>
                                     <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
                                         {
@@ -65,6 +63,7 @@ class Event extends Component {
                                 </PieChart>
                             </ResponsiveContainer>
                         ) : null
+
                         }
                         <WarningAlert text={this.state.infoText} /> <br />
                         <div className="eventCity">City: {event.venue && event.venue.city}</div>
@@ -74,7 +73,7 @@ class Event extends Component {
                         <div>  <a className="eventLink" target="_blank" rel="noopener noreferrer" href={event.link}>Event Link</a><br />
                         </div>
                     </div>
-                }
+                )}
                 <button className="detailsButton" onClick={this.handleChange}>{`${buttonText} Details`}</button>
 
             </div>
