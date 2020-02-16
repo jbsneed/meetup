@@ -46,23 +46,22 @@ class Event extends Component {
                     <div className="eventDetails">
                         <hr />
                         {this.props.event.rsvp_limit ? (
-                            <div className="responsiveContainer">
-                                <ResponsiveContainer height={600} width={400}>
-                                    <PieChart width={300} height={200}>
-                                        <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
-                                            {
-                                                this.getData().map((entry, index) => (
-                                                    <Cell key={`cell-${index}`} fill={colors[index]} />
-                                                ))
-                                            }
-                                        </Pie>
-                                        <Tooltip />
-                                        <Legend verticalAlign="top" height={36}>
-                                            <Line name="Attending" type="monotone" dataKey="taken" stroke="#8884d8" />
-                                            <Line name="Remaining" type="monotone" dataKey="remaining" stroke="#82ca9d" />
-                                        </Legend>
-                                    </PieChart>
-                                </ResponsiveContainer></div>
+                            <ResponsiveContainer height={600} width={400}>
+                                <PieChart width={300} height={200}>
+                                    <Pie data={this.getData()} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} label>
+                                        {
+                                            this.getData().map((entry, index) => (
+                                                <Cell key={`cell-${index}`} fill={colors[index]} />
+                                            ))
+                                        }
+                                    </Pie>
+                                    <Tooltip />
+                                    <Legend verticalAlign="top" height={36}>
+                                        <Line name="Attending" type="monotone" dataKey="taken" stroke="#8884d8" />
+                                        <Line name="Remaining" type="monotone" dataKey="remaining" stroke="#82ca9d" />
+                                    </Legend>
+                                </PieChart>
+                            </ResponsiveContainer>
                         ) : null
 
                         }
